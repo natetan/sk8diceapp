@@ -1,5 +1,6 @@
 package yulongproductions.com.skatedice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,12 +15,11 @@ public class TrickManager {
 
     // Constructs a list of tricks from an external file
     public TrickManager() {
+        this.tricks = new ArrayList<String>();
         String[] trickList = {
                 "ollie", "nollie", "kickflip", "shuvit", "heelflip", "bigspin", "revert"
         };
-        for (String trick : trickList) {
-            this.tricks.add(trick);
-        }
+        this.transfer(trickList, this.tricks);
     }
 
     // Returns the String representation of the stance
@@ -73,5 +73,13 @@ public class TrickManager {
     public String printTrick() {
         return this.getStance() + this.getDirection()
                 + this.getDegrees() + this.getTrick();
+    }
+
+    // Private method that tranfers all the elements of an array to an ArrayList of
+    // the same type
+    private void transfer(String[] list, List<String> newList) {
+        for (String item : list) {
+            newList.add(item);
+        }
     }
 }
