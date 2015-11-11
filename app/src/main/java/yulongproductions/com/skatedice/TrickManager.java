@@ -26,7 +26,7 @@ public class TrickManager {
     public TrickManager() {
         this.tricks = new ArrayList<>();
         String[] trickList = {
-                "ollie", "nollie", "kickflip", "shuvit", "heelflip", "bigspin", "revert"
+                "ollie", "kickflip", "shuvit", "heelflip", "bigspin", "revert"
         };
         this.transfer(trickList, this.tricks);
     }
@@ -58,15 +58,15 @@ public class TrickManager {
     }
 
     // Returns the number of degrees of the rotation
-    public int getDegrees() {
+    public String getDegrees() {
         Dice degrees = new Dice(ROTATIONS);
         int number = degrees.getNumber();
         if (number == 0) {
-            return 180;
+            return "";
         } else if (number == 1) {
-            return 360;
+            return "180";
         } else {
-            return 540;
+            return "360";
         }
     }
 
